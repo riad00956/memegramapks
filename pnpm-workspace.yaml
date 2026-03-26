@@ -2,9 +2,9 @@ packages:
   - '.'
 
 catalog:
-  "@replit/vite-plugin-cartographer": "^0.0.1"
-  "@replit/vite-plugin-dev-banner": "^0.0.2"
-  "@replit/vite-plugin-runtime-error-modal": "^0.0.3"
+  "@replit/vite-plugin-cartographer": "^0.5.1"
+  "@replit/vite-plugin-dev-banner": "latest"
+  "@replit/vite-plugin-runtime-error-modal": "latest"
   "@tailwindcss/vite": "^4.0.0"
   "@tanstack/react-query": "^5.66.0"
   "@types/node": "^22.13.1"
