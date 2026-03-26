@@ -21,11 +21,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'pnpm'
+          # cache: 'pnpm'  <-- এই লাইনটি সরিয়ে দিন বা কমেন্ট করে দিন
 
       - name: Install dependencies
-        # প্রথমবার লক-ফাইল তৈরির জন্য শুধু pnpm install দিন
-        run: pnpm install
+        # --frozen-lockfile ব্যবহার করবেন না যদি লক-ফাইল না থাকে
+        run: pnpm install 
 
       - name: Typecheck
         run: pnpm run typecheck
