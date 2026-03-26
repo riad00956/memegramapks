@@ -9,25 +9,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          # আপনার এনভায়রনমেন্টে ২০ ভার্সন দেখা যাচ্ছে, তাই ২০ ব্যবহার করাই নিরাপদ
+          node-version: '20' 
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install
+        # যদি লক-ফাইল না থাকে তবে --frozen-lockfile এরর দিবে। 
+        # প্রথমবার লক-ফাইল তৈরি করতে শুধু 'pnpm install' ব্যবহার করুন।
+        run: pnpm install
 
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
 
-      - name: Build project
-        run: npm run build
+      - name: Build
+        run: pnpm run build
         env:
           PORT: 3000
           BASE_PATH: /
